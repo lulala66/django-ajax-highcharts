@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="container" data-url="{% url 'data' %}"></div>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script>
+        $.ajax({
+            url: $("#container").attr("data-url"),
+            dataType: "json",
+            success: function (data) {
+                Highcharts.chart('container', data);
+            }
+        });
+    </script>
+</body>
+</html>
